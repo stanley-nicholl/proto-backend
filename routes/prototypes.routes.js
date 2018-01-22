@@ -1,5 +1,5 @@
 const router = require('express').Router()
-// const { authController, prototypesController } = require('../controllers')
+const { prototypesController } = require('../controllers')
 
 //returns all prototypes
 router.get('/', prototypesController.index)

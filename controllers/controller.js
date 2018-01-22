@@ -4,7 +4,7 @@ module.exports = name => {
   class Controller {
     static index (req, res, next) {
       Model.all()
-      .then(response => res.status(200).json({ [`${name}s`]: response }))
+      .then(response => res.status(200).json({ [`${name}`]: response }))
       .catch(next)
     }
 

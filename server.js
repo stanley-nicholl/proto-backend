@@ -6,17 +6,17 @@ const cors = require('cors')
 
 const app = express()
 app.use(bodyParser.json())
-app.user(morgan('dev'))
+app.use(morgan('dev'))
 app.use(cors())
 app.disable('x-powered-by')
 
 const {
-  authRouter,
+  // authRouter,
   usersRouter,
   prototypesRouter
 } = require('./routes')
 
-app.use('/api/auth', authRouter)
+// app.use('/api/auth', authRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/prototypes', prototypesRouter)
 

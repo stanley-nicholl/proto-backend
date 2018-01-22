@@ -7,8 +7,8 @@ exports.up = function(knex, Promise) {
     table.string('email').notNullable().defaultTo('')
     table.string('image').notNullable().defaultTo('')
     table.boolean('admin').defaultTo(false)
-    table.integer('prototype')
-    table.foreign('prototype').references('prototypes.id').onDelete('CASCADE')
+    table.integer('prototype_id')
+    table.foreign('prototype_id').references('prototypes.id').onDelete('CASCADE')
     table.timestamps(true, true)
   })
 }
