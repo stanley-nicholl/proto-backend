@@ -1,0 +1,36 @@
+{
+  "name": "testflight-backend",
+  "version": "1.0.0",
+  "description": "Server supporting prototype distribution and input data",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "knex": "knex"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stanley-nicholl/proto-backend.git"
+  },
+  "author": "Stanley Nicholl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stanley-nicholl/proto-backend/issues"
+  },
+  "homepage": "https://github.com/stanley-nicholl/proto-backend#readme",
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "knex": "^0.14.2",
+    "morgan": "^1.9.0",
+    "pg": "^7.4.1"
+  }
+}
