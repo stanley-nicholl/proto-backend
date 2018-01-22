@@ -17,7 +17,7 @@ module.exports = tableName => {
       return db(tableName)
       .insert(body)
       .returning('*')
-      .then(([ result ]) => result)
+      .first()
     }
 
     static update (id, body) {
@@ -25,7 +25,7 @@ module.exports = tableName => {
       .where({ id })
       .update(body)
       .returning('*')
-      .then(([ result ]) => result)
+      .first()
     }
 
     static destroy (id) {
