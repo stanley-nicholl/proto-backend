@@ -9,6 +9,7 @@ app.use(bodyParser.json())
 app.use(morgan('dev'))
 app.use(cors())
 app.disable('x-powered-by')
+app.disable('etag')
 
 const {
   // authRouter,

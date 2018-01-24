@@ -5,9 +5,10 @@ exports.up = function(knex, Promise) {
     table.foreign('prototype_id').references('prototypes.id').onDelete('CASCADE')
     table.integer('user_id').notNullable()
     table.foreign('user_id').references('users.id').onDelete('CASCADE')
-    table.text('feedback').notNullable().defaultTo('')
-    table.integer('rating').notNullable().defaultTo(0)
-    table.string('request').notNullable().defaultTo('')
+    table.boolean('painGain').notNullable().defaultTo(false)
+    table.boolean('simple').notNullable().defaultTo(false)
+    table.string('changeRequest').notNullable().defaultTo('')
+    table.string('nextSteps').notNullable().defaultTo('')
     table.timestamps(true, true)
   })
 };
