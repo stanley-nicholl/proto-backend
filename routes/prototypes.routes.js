@@ -14,7 +14,7 @@ router.get('/:id/reviews', prototypesController.indexReviews)
 router.post('/', prototypesController.create)
 
 //creates one prototype review
-router.post('/:id/reviews', prototypesController.createReview)
+router.post('/reviews', prototypesController.createReview)
 
 //updates one prototype
 router.put('/:id', prototypesController.update)
