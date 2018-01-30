@@ -8,7 +8,7 @@ router.get('/', authController.isAdmin, usersController.index)
 router.get('/fromtoken', usersController.showOneFromToken)
 
 //returns one user
-router.get('/:id', authController.isAdmin, usersController.showOne)
+router.get('/:id', usersController.showOne)
 
 //creates one users
 router.post('/', authController.isAdmin, usersController.create, usersController.createAdmin)

@@ -5,7 +5,7 @@ const { prototypesController, authController } = require('../controllers')
 router.get('/', authController.isAdmin, prototypesController.index)
 
 //returns one prototype
-router.get('/:id', authController.isAdmin, prototypesController.showOne)
+router.get('/:id', prototypesController.showOne)
 
 //returns all reviews for one prototype
 router.get('/:id/reviews', authController.isAdmin, prototypesController.indexReviews)
@@ -14,7 +14,7 @@ router.get('/:id/reviews', authController.isAdmin, prototypesController.indexRev
 router.post('/', authController.isAdmin, prototypesController.create)
 
 //creates one prototype review
-router.post('/reviews', authController.isAdmin, prototypesController.createReview)
+router.post('/reviews', prototypesController.createReview)
 
 //updates one prototype
 router.put('/:id', authController.isAdmin, prototypesController.update)
