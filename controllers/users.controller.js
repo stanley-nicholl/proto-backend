@@ -1,11 +1,10 @@
 const Controller = require('./controller')('users') //Plan is the model name
-const { usersModel, tokenModel } = require('../models')
+const { usersModel, tokenModel, authModel } = require('../models')
+const bcrypt = require('bcryptjs')
 
 class usersController extends Controller {
 
   static showOneFromToken (req, res, next) {
-    console.log('test');
-    console.log(req.headers);
     // Validate and decode token
     tokenModel.verifyAndExtractHeaderToken(req.headers)
     .catch(err => { throw new Error('invalidToken') })
@@ -15,6 +14,13 @@ class usersController extends Controller {
       if (!result) throw new Error('noSuchUser')
       return res.status(200).json({ User: result })
     })
+    .catch(next)
+  }
+
+  static createAdmin (req, res, next) {
+    const hashed_password = bcrypt.hashSync('password')
+    authModel.createAdmin(req.newAdmin.id, hashed_password)
+    .then(response => res.status(201).json({ [name]: response }))
     .catch(next)
   }
 

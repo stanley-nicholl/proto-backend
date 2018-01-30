@@ -8,7 +8,14 @@ class authModel extends Model {
     .where({ user_id: userId })
     .first()
   }
-  
+
+  static createAdmin (id, password) {
+    console.log('model');
+    return db('auth')
+    .insert({ user_id: id, hashed_password: password })
+    .returning('*')
+  }
+
 }
 
 module.exports = authModel

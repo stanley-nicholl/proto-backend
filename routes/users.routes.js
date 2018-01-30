@@ -11,7 +11,7 @@ router.get('/fromtoken', usersController.showOneFromToken)
 router.get('/:id', authController.isAdmin, usersController.showOne)
 
 //creates one users
-router.post('/', authController.isAdmin, usersController.create)
+router.post('/', authController.isAdmin, usersController.create, usersController.createAdmin)
 
 //updates one users
 router.put('/:id', authController.isAdmin, usersController.update)
