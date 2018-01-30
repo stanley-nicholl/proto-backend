@@ -1,19 +1,22 @@
 const router = require('express').Router()
-const { usersController } = require('../controllers')
+const { usersController, authController } = require('../controllers')
 
 //returns all users
-router.get('/', usersController.index)
+router.get('/', authController.isAdmin, usersController.index)
 
-//returns one users
-router.get('/:id', usersController.showOne)
+//returns one user using token to id
+router.get('/fromtoken', usersController.showOneFromToken)
+
+//returns one user
+router.get('/:id', authController.isAdmin, usersController.showOne)
 
 //creates one users
-router.post('/', usersController.create)
+router.post('/', authController.isAdmin, usersController.create)
 
 //updates one users
-router.put('/:id', usersController.update)
+router.put('/:id', authController.isAdmin, usersController.update)
 
 //deletes one users
-router.delete('/:id', usersController.destroy)
+router.delete('/:id', authController.isAdmin, usersController.destroy)
 
 module.exports = router

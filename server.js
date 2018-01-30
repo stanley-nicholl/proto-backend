@@ -12,12 +12,12 @@ app.disable('x-powered-by')
 app.disable('etag')
 
 const {
-  // authRouter,
+  authRouter,
   usersRouter,
   prototypesRouter
 } = require('./routes')
 
-// app.use('/api/auth', authRouter)
+app.use('/api/auth', authRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/prototypes', prototypesRouter)
 

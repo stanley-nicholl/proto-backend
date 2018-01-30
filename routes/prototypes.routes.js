@@ -1,25 +1,25 @@
 const router = require('express').Router()
-const { prototypesController } = require('../controllers')
+const { prototypesController, authController } = require('../controllers')
 
 //returns all prototypes
-router.get('/', prototypesController.index)
+router.get('/', authController.isAdmin, prototypesController.index)
 
 //returns one prototype
-router.get('/:id', prototypesController.showOne)
+router.get('/:id', authController.isAdmin, prototypesController.showOne)
 
 //returns all reviews for one prototype
-router.get('/:id/reviews', prototypesController.indexReviews)
+router.get('/:id/reviews', authController.isAdmin, prototypesController.indexReviews)
 
 //creates one prototype
-router.post('/', prototypesController.create)
+router.post('/', authController.isAdmin, prototypesController.create)
 
 //creates one prototype review
-router.post('/reviews', prototypesController.createReview)
+router.post('/reviews', authController.isAdmin, prototypesController.createReview)
 
 //updates one prototype
-router.put('/:id', prototypesController.update)
+router.put('/:id', authController.isAdmin, prototypesController.update)
 
 //deletes one prototype
-router.delete('/:id', prototypesController.destroy)
+router.delete('/:id', authController.isAdmin, prototypesController.destroy)
 
 module.exports = router
