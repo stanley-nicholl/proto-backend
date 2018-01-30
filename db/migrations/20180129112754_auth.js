@@ -1,5 +1,6 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('auth', (table) => {
+    table.increments()
     table.integer('user_id').notNullable()
     table.foreign('user_id').references('users.id').onDelete('CASCADE')
     table.string('hashed_password').notNullable().defaultTo('')

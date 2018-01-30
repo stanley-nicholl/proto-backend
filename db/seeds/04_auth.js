@@ -4,4 +4,7 @@ exports.seed = function(knex, Promise) {
     { user_id: 1, hashed_password: '$2a$10$w8ogbY524E441yPnbLmOTutsux895tuzO4wIUFDfVLghjvyUDPwxS' },
     { user_id: 5, hashed_password: '$2a$10$u8NM/0DijGnLCjP9aZTsX.ogmzDO51FzVGZYNYxfP34br3zBFDQ8K' }
   ])
+  .then(() => {
+    return knex.raw(`SELECT setval('auth_id_seq', (SELECT MAX(id) FROM auth));`)
+  })
 }

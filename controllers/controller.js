@@ -20,9 +20,12 @@ module.exports = name => {
     static create (req, res, next) {
       Model.create(req.body)
       .then(response => {
-        req.newAdmin = response
-        res.status(201).json({ [name]: response })
-        next()
+        if(!response.admin){
+          res.status(201).json({ [name]: response })
+        }else{
+          req.newAdmin = response
+          next()
+        }
       })
       .catch(next)
     }
